@@ -46,6 +46,7 @@ require("catppuccin").setup({
 			enabled = true,
 			indentscope_color = "",
 		},
+		nvim_surround = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
