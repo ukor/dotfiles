@@ -34,3 +34,12 @@ stow Alacritty configuration
 stow --dotfiles --target=$HOME --stow alacritty
 
 ```
+
+### Starship
+
+stow [starship](http://starship.rs) configuration
+
+```sh
+stow --dotfiles --target=$HOME --stow starship
+
+```
