@@ -24,7 +24,7 @@ local plugins = {
 
 	require("plugins.git"),
 	require("plugins.lazy_git"),
-	require("plugins.git_blame"),
+	-- require("plugins.git_blame"),
 
 	require("plugins.buffer_line"),
 	require("plugins.lualine"),
