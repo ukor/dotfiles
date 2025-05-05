@@ -31,6 +31,6 @@ stow --dotfiles --target=$HOME --stow tmux
 stow Alacritty configuration
 
 ```sh
-stow --dotfiles --target=$HOME --stow alacrity
+stow --dotfiles --target=$HOME --stow alacritty
 
 ```
