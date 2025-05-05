@@ -24,3 +24,13 @@ stow tmux configuration
 stow --dotfiles --target=$HOME --stow tmux
 
 ```
+
+
+### Alacritty
+
+stow Alacritty configuration
+
+```sh
+stow --dotfiles --target=$HOME --stow alacritty
+
+```

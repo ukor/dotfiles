@@ -1,0 +1,51 @@
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+TERM = "screen-256color"
+
+[shell]
+program = "/bin/zsh"
+args = ["-l"]
+
+[window]
+startup_mode = "Maximized"
+dimensions.columns = 180
+dimensions.lines = 70
+
+padding.x = 20
+padding.y = 40
+
+dynamic_padding = true
+
+decorations = "Transparent"
+
+opacity = 0.8
+
+blur = false 
+
+[font]
+
+size = 16.5
+
+normal.family = "RobotoMono Nerd Font"
+normal.style = "Regular"
+
+bold.family = "RobotoMono Nerd Font"
+bold.style = "Bold"
+
+italic.family = "RobotoMono Nerd Font"
+italic.style = "Italic"
+
+bold_italic.family = "RobotoMono Nerd Font"
+bold_italic.style = "Bold Italic"
+
+[cursor]
+
+style.shape = "Block"
+style.blinking = "Always"
+blink_timeout = 0
+thickness = 0.2
+
+
