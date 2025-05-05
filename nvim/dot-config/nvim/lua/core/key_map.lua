@@ -54,15 +54,15 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Move text up and down
-keymap("n", "˚", ":m-2<CR>==", opts) -- on Mac <A-k> is ˚
-keymap("n", "∆", ":m+1<CR>==", opts) -- on Mac <A-j> is ∆
+keymap("n", "<A-k>", ":m-2<CR>==", opts) -- on Mac <A-k> is ˚
+keymap("n", "<A-j>", ":m+1<CR>==", opts) -- on Mac <A-j> is ∆
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>di", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 
-vim.keymap.set("n", "<cmd>vs", "<cmd>vsplit<cr>", { desc = "Split screen vertically" })
-vim.keymap.set("n", "<cmd>hs", "<cmd>hsplit<cr>", { desc = "Split screen horizontally" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<cr>", { desc = "Split screen vertically" })
+vim.keymap.set("n", "<leader>wh", "<cmd>hsplit<cr>", { desc = "Split screen horizontally" })
 
 -- Overides opening defination list in Quick fix list --
 vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Open defination list in telescope" })
@@ -70,8 +70,6 @@ vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Open d
 -- vim.keymap.set("i", "<leader><C>", "<Esc>")
 
 vim.keymap.set("i", "kj", "<Esc>")
-
-vim.keymap.set("i", "<cmd>cc", "<Esc>o", { desc = "Carriage, go to next line" })
 
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver15,r-cr-o:hor20"
 
