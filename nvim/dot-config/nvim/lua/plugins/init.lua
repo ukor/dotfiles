@@ -40,6 +40,10 @@ local plugins = {
 	require("plugins.comment"),
 
 	require("plugins.surround"),
+
+	require("plugins.oil"),
+
+	require("plugins.noice"),
 }
 
 return plugins
