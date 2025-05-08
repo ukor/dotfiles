@@ -35,7 +35,7 @@ local plugins = {
 
 	require("plugins.dashboard"),
 
-	require("plugins.auto_format"),
+	require("plugins.conform"),
 
 	require("plugins.comment"),
 
