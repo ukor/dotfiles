@@ -4,6 +4,7 @@ local plugins = {
 	require("plugins.auto_pairs"),
 
 	require("plugins.tree_sitter"),
+	require("plugins.text_object"),
 
 	require("plugins.dressing"),
 
@@ -15,6 +16,7 @@ local plugins = {
 
 	require("plugins.lsp"),
 	require("plugins.nvim_cmp"),
+	-- require("plugins.blink_cmp"),
 
 	require("plugins.trouble"),
 
@@ -44,6 +46,7 @@ local plugins = {
 	require("plugins.oil"),
 
 	require("plugins.noice"),
+	require("plugins.sleuth"),
 }
 
 return plugins
