@@ -96,7 +96,11 @@ return {
 		vim.lsp.config("ts_ls", javascript_config)
 		vim.lsp.enable("ts_ls")
 
-    lspconfig.biome.setup({
+		local go_config = vim.tbl_deep_extend("force", { capabilities = capabilities }, require("configs.lsp.go"))
+		vim.lsp.config("gopls", go_config)
+		vim.lsp.enable("gopls")
+
+		lspconfig.biome.setup({
 
 			cmd = { "biome" },
 			filetypes = { "typescript", "typescriptreact", "typescript.tsx", "json" },
@@ -111,6 +115,5 @@ return {
 		})
 
 		--
-
-		end,
+	end,
 }
