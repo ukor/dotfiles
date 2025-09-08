@@ -23,6 +23,34 @@ vim.g.maplocalleader = " "
 -- Maps ; key to command mode
 keymap("n", ";", ":")
 
+keymap("v", "h", function()
+	-- Gets the text of the current line.
+	local current_line = vim.api.nvim_get_current_line()
+
+	vim.notify(current_line)
+
+	-- Gets the current column number of the cursor (0-based index, so we add 1 to make it 1-based).
+	local cursor_col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- Get 1-based column
+
+	-- Checks if the cursor is at the very beginning of the line (column 1)
+	if cursor_col == 1 then
+		--
+		-- Gets the current line number.
+		local current_line_nr = vim.api.nvim_win_get_cursor(0)[1]
+		if current_line_nr > 1 then
+			--
+			-- If we are at the beginning of a line and not on the first line,
+			-- this executes the normal mode commands k (move up one line) and
+			-- $ (move to the end of the line).
+			-- The normal! ensures that any custom mappings in normal mode are bypassed.
+			--
+			vim.cmd("normal! k$") -- Move to the end of the previous line
+		end
+	else
+		vim.cmd("normal! h") -- Default 'h' behavior
+	end
+end, { noremap = true, silent = true })
+
 -- disable arrow keys for normal mode and insert mode
 -- keymap("n", "<Up>", "<NOP>", opts)
 -- keymap("n", "<Down>", "<NOP>", opts)

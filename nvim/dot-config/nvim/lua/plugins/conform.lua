@@ -28,7 +28,7 @@ return { -- Autoformat
 				return nil
 			else
 				return {
-					timeout_ms = 500,
+					timeout_ms = 1000,
 					lsp_format = "fallback",
 				}
 			end
@@ -45,8 +45,10 @@ return { -- Autoformat
 			-- python = { "isort", "black" },
 			--
 			-- You can use 'stop_after_first' to run the first available formatter from the list
-			javascript = { "biome", "prettierd", "prettier", stop_after_first = true },
-			typescript = { "biome", "prettierd", "prettier", stop_after_first = true },
+			javascript = { "biome", "prettierd", "prettier", stop_after_first = true, timeout_ms = 1000 },
+			typescript = { "biome", "prettierd", "prettier", stop_after_first = true, timeout_ms = 1000 },
+			json = { "biome", timeout_ms = 1000 },
+			jsonc = { "biome", timeout_ms = 1000 },
 		},
 	},
 }

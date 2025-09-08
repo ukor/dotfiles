@@ -47,6 +47,9 @@ local plugins = {
 
 	require("plugins.noice"),
 	require("plugins.sleuth"),
+
+	require("plugins.crates"),
+	require("plugins.rust"),
 }
 
 return plugins
