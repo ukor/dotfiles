@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 -- Maps ; key to command mode
 keymap("n", ";", ":")
 
+keymap("t", "<Esc><Esc>", "<C-\\><C-n>")
+keymap("t", "qq", "<C-\\><C-n>:close<CR>")
+
 keymap("v", "h", function()
 	-- Gets the text of the current line.
 	local current_line = vim.api.nvim_get_current_line()
