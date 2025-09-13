@@ -21,17 +21,17 @@ local function create_floating_terminal(opts)
 	opts = opts or {}
 
 	-- Get the current window dimensions.
-	local win_height = vim.api.nvim_win_get_height(0)
-	local win_width = vim.api.nvim_win_get_width(0)
+	-- local win_height = vim.api.nvim_win_get_height(0)
+	-- local win_width = vim.api.nvim_win_get_width(0)
 
 	-- Calculate the height and width of the floating window.
 	-- Default to 80% of the current window's dimensions if not provided.
-	local float_height = opts.height or math.floor(win_height * 0.8)
-	local float_width = opts.width or math.floor(win_width * 0.8)
+	local float_height = opts.height or math.floor(vim.o.lines * 0.8)
+	local float_width = opts.width or math.floor(vim.o.columns * 0.8)
 
 	-- Calculate the row and column to center the floating window.
-	local float_row = math.floor((win_height - float_height) / 2)
-	local float_col = math.floor((win_width - float_width) / 2)
+	local float_row = math.floor((vim.o.lines - float_height) / 2)
+	local float_col = math.floor((vim.o.columns - float_width) / 2)
 
 	-- Create a new scratch buffer for the window content.
 	local buf = nil
@@ -82,5 +82,5 @@ vim.api.nvim_create_user_command("OpenFloatingTerminal", function()
 end, {})
 
 -- Create a keymap to open the terminal
-vim.keymap.set("n", "<leader>wf", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
-vim.keymap.set("n", "<leader>tf", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
+vim.keymap.set("n", "<leader>wft", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
+vim.keymap.set({ "t", "n" }, "<leader>tf", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
