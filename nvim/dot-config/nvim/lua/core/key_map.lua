@@ -26,7 +26,7 @@ keymap("n", ";", ":")
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>")
 keymap("t", "qq", "<C-\\><C-n>:close<CR>")
 
-keymap("v", "h", function()
+keymap({ "v", "n" }, "h", function()
 	-- Gets the text of the current line.
 	local current_line = vim.api.nvim_get_current_line()
 
@@ -55,14 +55,14 @@ keymap("v", "h", function()
 end, { noremap = true, silent = true })
 
 -- disable arrow keys for normal mode and insert mode
--- keymap("n", "<Up>", "<NOP>", opts)
--- keymap("n", "<Down>", "<NOP>", opts)
--- keymap("n", "<Left>", "<NOP>", opts)
--- keymap("n", "<Right>", "<NOP>", opts)
--- keymap("i", "<Up>", "<NOP>", opts)
--- keymap("i", "<Down>", "<NOP>", opts)
--- keymap("i", "<Left>", "<NOP>", opts)
--- keymap("i", "<Right>", "<NOP>", opts)
+keymap("n", "<Up>", "<NOP>", opts)
+keymap("n", "<Down>", "<NOP>", opts)
+keymap("n", "<Left>", "<NOP>", opts)
+keymap("n", "<Right>", "<NOP>", opts)
+keymap("i", "<Up>", "<NOP>", opts)
+keymap("i", "<Down>", "<NOP>", opts)
+keymap("i", "<Left>", "<NOP>", opts)
+keymap("i", "<Right>", "<NOP>", opts)
 
 ------------
 -- Normal --

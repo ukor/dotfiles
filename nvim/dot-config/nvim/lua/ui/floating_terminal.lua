@@ -33,7 +33,6 @@ local function create_floating_terminal(opts)
 	local float_row = math.floor((vim.o.lines - float_height) / 2)
 	local float_col = math.floor((vim.o.columns - float_width) / 2)
 
-	-- Create a new scratch buffer for the window content.
 	local buf = nil
 	if vim.api.nvim_buf_is_valid(opts.buf) then
 		buf = opts.buf
@@ -41,7 +40,6 @@ local function create_floating_terminal(opts)
 		buf = vim.api.nvim_create_buf(false, true)
 	end
 
-	-- Define the options for the floating window.
 	local win_options = {
 		relative = "editor",
 		row = float_row,
@@ -56,12 +54,7 @@ local function create_floating_terminal(opts)
 		zindex = 100,
 	}
 
-	-- Open the floating window.
 	local win = vim.api.nvim_open_win(buf, true, win_options)
-
-	-- Set keymaps for closing the window.
-	vim.api.nvim_buf_set_keymap(buf, "n", "q", ":close<CR>", { noremap = true, silent = true })
-	vim.api.nvim_buf_set_keymap(buf, "i", "<esc>", "<C-o>:close<CR>", { noremap = true, silent = true })
 
 	return { buf = buf, win = win }
 end
