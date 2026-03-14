@@ -8,6 +8,21 @@ local state = {
 	},
 }
 
+-- Create an augroup for terminal-specific behaviors
+local term_group = vim.api.nvim_create_augroup("TerminalSettings", { clear = true })
+
+-- BufEnter ensures that `i` is not hit again when the terminal is toggled
+vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
+	group = term_group,
+	pattern = "term://*", -- Only trigger for terminal buffers
+	callback = function()
+		vim.opt_local.number = false
+		vim.opt_local.relativenumber = false
+		vim.opt_local.signcolumn = "no"
+		vim.cmd("startinsert")
+	end,
+})
+
 -- A function to create a floating terminal
 --
 -- @param opts table A table of options to configure the window.
@@ -41,6 +56,8 @@ local function create_floating_terminal(opts)
 	end
 
 	local win_options = {
+		title = " Terminal ",
+		title_pos = "center",
 		relative = "editor",
 		row = float_row,
 		col = float_col,
@@ -68,6 +85,9 @@ vim.api.nvim_create_user_command("OpenFloatingTerminal", function()
 		if vim.bo[state.floating.buf].buftype ~= "terminal" then
 			vim.cmd.terminal()
 		end
+
+		-- FORCE INSERT MODE
+		vim.cmd("startinsert")
 	else
 		vim.api.nvim_win_hide(state.floating.win)
 	end
@@ -76,4 +96,7 @@ end, {})
 
 -- Create a keymap to open the terminal
 vim.keymap.set("n", "<leader>wft", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
-vim.keymap.set({ "t", "n" }, "<leader>tf", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
+vim.keymap.set("n", "<leader>tf", ":OpenFloatingTerminal<CR>", { desc = "Open floating window" })
+
+-- Terminal mode: Must use <C-\><C-n> to escape before calling the command
+vim.keymap.set("t", "<leader>tf", [[<C-\><C-n>:OpenFloatingTerminal<CR>]], { silent = true })
