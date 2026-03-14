@@ -11,3 +11,5 @@
 - https://vineeth.io/posts/neovim-setup
 
 - [Lazy Vim Rust configuration](https://www.lazyvim.org/extras/lang/rust)
+
+- [Tree CheatSheet](https://docs.rockylinux.org/10/books/nvchad/nvchad_ui/nvimtree/)

@@ -91,6 +91,18 @@ return {
 			},
 		})
 
+		lspconfig["nextls"].setup({
+			cmd = { "nextls", "--stdio" },
+			init_options = {
+				extensions = {
+					credo = { enable = true },
+				},
+				experimental = {
+					completions = { enable = true },
+				},
+			},
+		})
+
 		local javascript_config =
 			vim.tbl_deep_extend("force", { capabilities = capabilities }, require("configs.lsp.javascript"))
 		vim.lsp.config("ts_ls", javascript_config)
