@@ -24,8 +24,8 @@ vim.g.maplocalleader = " "
 keymap("n", ";", ":")
 
 -- Exit floating terminal
-keymap("n", "qq", "<Esc>")
-keymap("t", "<Esc><Esc>", "<C-\\><C-n>") -- experimentation
+keymap("n", "qq", "<Esc>") -- Quite recording in normal mode
+keymap("t", "<Esc><Esc>", "<C-\\><C-n>") -- switch from terminal mode to normal mode
 keymap("t", "qq", "<C-\\><C-n>:close<CR>") -- this actually close the floating terminal
 -- Floating terminal
 
