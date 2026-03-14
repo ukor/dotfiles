@@ -50,6 +50,7 @@ return {
 				{ name = "luasnip" }, -- snippets
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
+				{ name = "vim-dadbod-completion" },
 			}),
 
 			-- configure lspkind for vs-code like pictograms in completion menu
@@ -59,6 +60,14 @@ return {
 					ellipsis_char = "...",
 				}),
 			},
+		})
+
+		-- SQL SPECIFIC CONFIG
+		cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+			sources = cmp.config.sources({
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+			}),
 		})
 	end,
 }

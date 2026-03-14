@@ -16,7 +16,7 @@ return { -- Autoformat
 		notify_on_error = false,
 		format_on_save = function(bufnr)
 			-- Disable autoformat on certain filetypes
-			local ignore_filetypes = { "sql", "java", "go" }
+			local ignore_filetypes = { "java", "go" }
 			if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
 				return
 			end
@@ -35,6 +35,7 @@ return { -- Autoformat
 		end,
 		formatters_by_ft = {
 			lua = { "stylua" },
+			sql = { "sql_formatter" },
 			-- Does not seem to work well with gopls
 			-- gopls handles all formating -
 			-- See https://github.com/stevearc/conform.nvim/issues/387
