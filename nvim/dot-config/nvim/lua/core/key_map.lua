@@ -23,14 +23,17 @@ vim.g.maplocalleader = " "
 -- Maps ; key to command mode
 keymap("n", ";", ":")
 
-keymap("t", "<Esc><Esc>", "<C-\\><C-n>")
-keymap("t", "qq", "<C-\\><C-n>:close<CR>")
+-- Exit floating terminal
+keymap("n", "qq", "<Esc>")
+keymap("t", "<Esc><Esc>", "<C-\\><C-n>") -- experimentation
+keymap("t", "qq", "<C-\\><C-n>:close<CR>") -- this actually close the floating terminal
+-- Floating terminal
 
 keymap({ "v", "n" }, "h", function()
 	-- Gets the text of the current line.
 	local current_line = vim.api.nvim_get_current_line()
 
-	vim.notify(current_line)
+	-- vim.notify(current_line)
 
 	-- Gets the current column number of the cursor (0-based index, so we add 1 to make it 1-based).
 	local cursor_col = vim.api.nvim_win_get_cursor(0)[2] + 1 -- Get 1-based column
@@ -115,3 +118,19 @@ vim.keymap.set("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 vim.keymap.set("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 
 ---
+
+-- Oil
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+--
+
+-- Copy Absolute Path
+vim.keymap.set("n", "<leader>cpa", function()
+	vim.fn.setreg("+", vim.fn.expand("%:p"))
+	vim.notify("Copied absolute path to clipboard")
+end, { desc = "Copy absolute path" })
+
+-- Copy Relative Path
+vim.keymap.set("n", "<leader>cpr", function()
+	vim.fn.setreg("+", vim.fn.expand("%"))
+	vim.notify("Copied relative path to clipboard")
+end, { desc = "Copy relative path" })
