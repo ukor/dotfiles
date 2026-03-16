@@ -26,6 +26,7 @@ format = 'via [$name $version] ($style)'
 format = 'via [dart $version](bold red) '
 
 [directory]
+style = "bold lavender"
 truncation_length = 2
 truncate_to_repo = true
 truncation_symbol = '.../'
