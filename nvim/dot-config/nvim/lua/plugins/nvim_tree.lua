@@ -18,6 +18,17 @@ return {
 			hijack_netrw = true,
 			hijack_cursor = true,
 			hijack_unnamed_buffer_when_opening = false,
+			diagnostics = {
+				enable = true,
+				show_on_dirs = true,
+				show_on_open_dirs = true,
+				icons = {
+					error = "✗",
+					warning = "",
+					info = "",
+					hint = "󰋖",
+				},
+			},
 			sync_root_with_cwd = true,
 			-- on_attach = require('on_attach'),
 			update_focused_file = {
@@ -61,9 +72,9 @@ return {
 						},
 
 						git = {
-							unstaged = "✗",
-							staged = "✓",
-							unmerged = "",
+							unstaged = "",
+							staged = "",
+							unmerged = "",
 							renamed = "➜",
 							untracked = "★",
 							deleted = "",
