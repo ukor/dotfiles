@@ -31,8 +31,6 @@ require("core.lazy")
 
 require("core.autocmd")
 
-require("configs.catppuccin")
-
 require("core.key_map")
 
 -- Load the floating termina

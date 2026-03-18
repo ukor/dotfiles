@@ -7,7 +7,9 @@ return {
 	},
 	config = function()
 		-- import nvim-autopairs
+		local Rule = require("nvim-autopairs.rule")
 		local autopairs = require("nvim-autopairs")
+		local cond = require("nvim-autopairs.conds")
 
 		-- configure autopairs
 		autopairs.setup({

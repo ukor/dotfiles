@@ -17,15 +17,10 @@ return {
 		---
 
 		local lspconfig = require("lspconfig")
-
-		-- local mason_lspconfig = require("mason-lspconfig")
-
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		-- local on_attach = require("on_attach")
-
 		require("core.lsp_attach")
-
 		require("core.lsp_diagnostic")
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
@@ -55,76 +50,22 @@ return {
 		------------------------------------------------------------------
 		------------------------------------------------------------------
 
-		---- Server configuration are manual done by me,
-		--- no need for mason_lspconfig
+		vim.lsp.config("lua_ls", require("configs.lsp.lua_options")(capabilities))
 
-		-- local mason_lspconfig = require("mason-lspconfig")
-
-		-- mason_lspconfig.setup({
-		-- 	ensure_installed = {},
-		-- 	automatic_installation = false,
-		-- 	handlers = {
-		-- 		function(server_name)
-		-- 			require("lspconfig")[server_name].setup({
-		-- 				capabilities = default_lsp_capabilities,
-		-- 			})
-		-- 		end,
-		-- 	},
-		-- })
-
-		lspconfig.lua_ls.setup({
-			capabilities = capabilities,
-			settings = {
-				Lua = {
-					runtime = {
-						version = "LuaJIT",
-					},
-					diagnostics = {
-						globals = { "vim" },
-					},
-					workspace = {
-						library = {
-							vim.env.VIMRUNTIME,
-						},
-					},
-				},
-			},
-		})
-
-		lspconfig["nextls"].setup({
-			cmd = { "nextls", "--stdio" },
-			init_options = {
-				extensions = {
-					credo = { enable = true },
-				},
-				experimental = {
-					completions = { enable = true },
-				},
-			},
-		})
-
-		local javascript_config =
-			vim.tbl_deep_extend("force", { capabilities = capabilities }, require("configs.lsp.javascript"))
-		vim.lsp.config("ts_ls", javascript_config)
+		local js_options = require("configs.lsp.javascript")(capabilities)
+		-- local javascript_config = vim.tbl_deep_extend("force", require("configs.lsp.javascript")(capabilities))
+		vim.lsp.config("ts_ls", js_options)
 		vim.lsp.enable("ts_ls")
+		-- Old way of configuring lsp
+		-- lspconfig.ts_ls.setup(js_options)
 
-		local go_config = vim.tbl_deep_extend("force", { capabilities = capabilities }, require("configs.lsp.go"))
-		vim.lsp.config("gopls", go_config)
+		local go_options = require("configs.lsp.go")(capabilities)
+		vim.lsp.config("gopls", go_options)
 		vim.lsp.enable("gopls")
+		-- lspconfig.gopls.setup(go_options)
 
-		lspconfig.biome.setup({
-
-			cmd = { "biome" },
-			filetypes = { "typescript", "typescriptreact", "typescript.tsx", "json" },
-			root_dir = lspconfig.util.root_pattern(
-				"biome.json",
-				"tsconfig.json",
-				"jsconfig.json",
-				"package.json",
-				".git"
-			),
-			single_file_support = false,
-		})
+		vim.lsp.config("biome", require("configs.lsp.biome")(capabilities))
+		vim.lsp.enable("biome")
 
 		--
 	end,
