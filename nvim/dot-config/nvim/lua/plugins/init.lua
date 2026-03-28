@@ -4,7 +4,8 @@ local plugins = {
 	require("plugins.auto_pairs"),
 
 	require("plugins.tree_sitter"),
-	require("plugins.text_object"),
+	require("plugins.autotag"),
+	-- require("plugins.text_object"),
 
 	require("plugins.dressing"),
 
@@ -35,7 +36,7 @@ local plugins = {
 
 	require("plugins.which_key"),
 
-	require("plugins.dashboard"),
+	--	require("plugins.dashboard"),
 
 	require("plugins.conform"),
 
