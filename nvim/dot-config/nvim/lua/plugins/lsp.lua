@@ -51,6 +51,7 @@ return {
 		------------------------------------------------------------------
 
 		vim.lsp.config("lua_ls", require("configs.lsp.lua_options")(capabilities))
+		vim.lsp.enable("lua_ls")
 
 		local js_options = require("configs.lsp.javascript")(capabilities)
 		-- local javascript_config = vim.tbl_deep_extend("force", require("configs.lsp.javascript")(capabilities))
