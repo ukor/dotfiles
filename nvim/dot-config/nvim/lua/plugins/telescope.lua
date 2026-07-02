@@ -52,27 +52,27 @@ return {
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
-		keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch for opened [B]uffers - Same as <leader-sr>" })
-		keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp - Telescope Help" })
+		keymap.set("n", "<leader>fb", builtin.buffers, { desc = "[F]ind opened [B]uffers - Same as <leader-fr>" })
+		keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "[F]ind [H]elp - Telescope Help" })
 
 		keymap.set(
 			"n",
-			"<leader>sf",
+			"<leader>ff",
 			"<cmd>Telescope find_files<cr>",
 			{ desc = "[S]earch for files in CWD - Fuzzy find files in cwd" }
 		)
 		keymap.set(
 			"n",
-			"<leader>sr",
+			"<leader>fr",
 			"<cmd>Telescope oldfiles<cr>",
-			{ desc = "Search for opened buffer - Fuzzy find recent files" }
+			{ desc = "Find opened buffer - Fuzzy find recent files" }
 		)
 
-		keymap.set("n", "<leader>sw", "<cmd>Telescope live_grep<cr>", { desc = "[S]earch for [W]ord in CWD" })
+		keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "[F]ind for [W]ord in CWD" })
 
 		keymap.set(
 			"n",
-			"<leader>ss",
+			"<leader>fs",
 			"<cmd>Telescope grep_string<cr>",
 			{ desc = "[S]earch for [S]tring user in the cursor in CWD" }
 		)

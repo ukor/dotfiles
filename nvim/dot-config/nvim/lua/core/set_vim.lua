@@ -13,6 +13,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- Reserve a space in the gutter
 -- This will avoid an annoying layout shift in the screen

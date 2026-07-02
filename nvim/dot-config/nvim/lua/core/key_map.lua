@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 -- Maps ; key to command mode
 keymap("n", ";", ":")
 
+keymap({ "n" }, "<leader>ml", "<cmd>marks<CR>", { desc = "List all marks" })
+keymap({ "n" }, "<leader>md", "<cmd>delmarks!<CR>", { desc = "Delete marks" })
+
 -- Exit floating terminal
 keymap("n", "qq", "<Esc>") -- Quite recording in normal mode
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>") -- switch from terminal mode to normal mode
@@ -134,3 +137,9 @@ vim.keymap.set("n", "<leader>cpr", function()
 	vim.fn.setreg("+", vim.fn.expand("%"))
 	vim.notify("Copied relative path to clipboard")
 end, { desc = "Copy relative path" })
+
+-- Move selected lines up using Shift + K
+vim.keymap.set("v", "K", ":m '*-2<CR>gv=gv", { silent = true })
+
+-- Move selected lines down using Shift + J (Optional bonus)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
