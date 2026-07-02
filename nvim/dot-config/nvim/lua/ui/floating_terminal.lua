@@ -19,6 +19,9 @@ vim.api.nvim_create_autocmd({ "TermOpen", "BufEnter" }, {
 		vim.opt_local.number = false
 		vim.opt_local.relativenumber = false
 		vim.opt_local.signcolumn = "no"
+		-- prevents the showing a ddedicated buffer for the floating terminal
+		-- and also prevents :bnext and :bprev navigation
+		vim.opt_local.buflisted = false
 		vim.cmd("startinsert")
 	end,
 })
@@ -53,6 +56,9 @@ local function create_floating_terminal(opts)
 		buf = opts.buf
 	else
 		buf = vim.api.nvim_create_buf(false, true)
+
+		-- Force unlisted to be set to false, this ensures that neovim and buffer-lines plugins respect it
+		vim.api.nvim_set_option_value("buflisted", false, { buf = buf })
 	end
 
 	local win_options = {

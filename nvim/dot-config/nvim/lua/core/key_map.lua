@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 -- Maps ; key to command mode
 keymap("n", ";", ":")
 
+keymap({ "n" }, "<leader>ml", "<cmd>marks<CR>", { desc = "List all marks" })
+keymap({ "n" }, "<leader>md", "<cmd>delmarks!<CR>", { desc = "Delete marks" })
+
 -- Exit floating terminal
 keymap("n", "qq", "<Esc>") -- Quite recording in normal mode
 keymap("t", "<Esc><Esc>", "<C-\\><C-n>") -- switch from terminal mode to normal mode

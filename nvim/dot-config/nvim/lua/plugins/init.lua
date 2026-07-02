@@ -52,6 +52,9 @@ local plugins = {
 	require("plugins.crates"),
 	require("plugins.rust"),
 	require("plugins.tmux_navigator"),
+
+	require("plugins.flash"),
+	require("plugins.marks"),
 }
 
 return plugins

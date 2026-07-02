@@ -16,7 +16,8 @@ return {
 	config = function()
 		---
 
-		local lspconfig = require("lspconfig")
+		-- Migrated to built-in lsp configuration
+		-- local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		-- local on_attach = require("on_attach")
