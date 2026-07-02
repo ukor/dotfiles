@@ -137,3 +137,9 @@ vim.keymap.set("n", "<leader>cpr", function()
 	vim.fn.setreg("+", vim.fn.expand("%"))
 	vim.notify("Copied relative path to clipboard")
 end, { desc = "Copy relative path" })
+
+-- Move selected lines up using Shift + K
+vim.keymap.set("v", "K", ":m '*-2<CR>gv=gv", { silent = true })
+
+-- Move selected lines down using Shift + J (Optional bonus)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true })
