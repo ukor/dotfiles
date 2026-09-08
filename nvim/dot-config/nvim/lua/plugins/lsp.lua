@@ -69,6 +69,9 @@ return {
 		vim.lsp.config("biome", require("configs.lsp.biome")(capabilities))
 		vim.lsp.enable("biome")
 
+		vim.lsp.config("pyright", require("configs.lsp.python")(capabilities))
+		vim.lsp.enable("pyright")
+
 		--
 	end,
 }
